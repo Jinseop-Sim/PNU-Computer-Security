@@ -5,7 +5,7 @@
 </p>
 <br/>
 
-__It's Cryptography Study with DREAMHACK..__
+__It's Computer Security Class with PNU CSE__
 - Classic Password
 - Modern Password
 - Block Password : DES
