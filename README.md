@@ -6,15 +6,8 @@
 <br/>
 
 __It's Computer Security Class with PNU CSE__
-- Classic Password
-- Modern Password
-- Block Password : DES
-- Block Password : AES
-- Block Password : Operational mode
-- Diffie Hellman Algorithm
-- RSA
-- Hash
-- Digital Signature
+- Definition of Computer Security
+- Cryptography Algorithm
 <br/>
 <br/>
 <br/>
