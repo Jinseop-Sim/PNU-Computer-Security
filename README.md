@@ -8,6 +8,7 @@
 __It's Computer Security Class with PNU CSE__
 - Definition of Computer Security
 - Cryptography Algorithm
+- Authentication
 <br/>
 <br/>
 <br/>
