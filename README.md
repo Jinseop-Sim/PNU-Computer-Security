@@ -8,7 +8,19 @@
 __It's Computer Security Class with PNU CSE__
 - Definition of Computer Security
 - Cryptography Algorithm
+  - Symmetric Key Algorithm(DES)
+  - Asymmetric(Public) Key Algorithm(RSA)
 - Authentication
+  - Message Authentication
+  - User Authentication
+- Access Control
+- Database Security
+- OS Security
+- Malware(Malicious Software)
+  - Viruses
+  - Worms
+- Buffer Overflow  
+
 <br/>
 <br/>
 <br/>
