@@ -19,7 +19,16 @@ __It's Computer Security Class with PNU CSE__
 - Malware(Malicious Software)
   - Viruses
   - Worms
-- Buffer Overflow  
+- Buffer Overflow
+  - Stack Buffer Overflow
+  - Heap Buffer Overflow
+- Classic Encryption Algorithm
+  - Substitution Cipher
+    - Single Key : Caesar Cipher
+    - Multiple key : Vigenere Cipher, Gronsfeld Cipher
+  - Transition Cipher
+    - Keyless : Rail Fence Cipher
+    - Keyed : Simple keyed Cipher
 
 <br/>
 <br/>
