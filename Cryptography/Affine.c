@@ -3,55 +3,49 @@
 
 char AffineCipher(char *str, int str_size, int key1, int key2, int select)
 {
-    int i;
+    int i, j,sol, key_inv;
     if(select==1){
         for(i=0;i<str_size;i++)
         {
             if((str[i]>='A')&&(str[i]<='Z')) // 대문자에 대한 검사
             {
                 str[i] -= 'A'; // str안의 문자에 대한 값을 0~25에 매핑.
-
-                if (key1*str[i] + key2 < 0) // key1*문자 + key2로 암호화 한 값이 음수라면, 양수로 다시 매핑하기 위해 26을 더해준다.
-                {
-                    str[i] += 26;
-                }
                 str[i] = (key1*str[i] + key2) % 26; // key1*문자 + key2 값이 25를 넘어가버리면 매핑할 문자가 없으므로 mod 연산 시행.
-                str[i] += 'A'; // 매핑했던 0~25의 값을 다시 문자로 되돌린다.
+                str[i] += 'A'; // 매핑 했던 0~25의 값을 다시 문자로 되돌린다.
             }
             else if((str[i] >= 'a') && (str[i] <= 'z')) {
                 str[i] -= 'a';
-
-                if (key1*str[i] + key2 < 0) // key1*문자 + key2로 암호화 한 값이 음수라면, 양수로 다시 매핑하기 위해 26을 더해준다.
-                {
-                    str[i] += 26;
-                }
                 str[i] = (key1*str[i] + key2) % 26;
                 str[i] += 'a';
             }
         }
     }
     else if(select==2){
+        for(j = 0; j<26; j++){   // 복호화를 위한 key1의 역원을 찾는 코드이다. key1을 그냥 나누어버리면 소용이 없다!
+            sol = (key1*j)%26;   // 그냥 나누는 것이 아닌, 역원을 곱해야만 원래의 Plaintext를 추출할 수가 있다.
+            if(sol==1) {
+                key_inv = j;
+            }
+        }
         for(i=0;i<str_size;i++)
         {
             if((str[i]>='A')&&(str[i]<='Z')) // 대문자에 대한 검사
             {
                 str[i] -= 'A'; // str안의 문자에 대한 값을 0~25에 매핑.
-
-                if ((str[i] - key2)/key1 < 0) // (문자-key2)/key1로 복호화 한 값이 음수라면, 양수로 다시 매핑하기 위해 26을 더해준다.
+                str[i] = ((str[i] - key2)*key_inv)%26; // (str-key2)/key_inv 값이 25를 넘어가버리면 매핑할 문자가 없으므로 mod 연산 시행.
+                if (str[i] < 0) // (str-key2)/key_inv 로 복호화 한 값이 음수라면, 양수로 다시 매핑하기 위해 26을 더해준다.
                 {
                     str[i] += 26;
                 }
-                str[i] = ((str[i] - key2)/key1) % 26; // (문자-key2)/key1로 복호화한 값이 25를 넘어가버리면 매핑할 문자가 없으므로 mod 연산 시행.
-                str[i] += 'A'; // 매핑했던 0~25의 값을 다시 문자로 되돌린다.
+                str[i] += 'A'; // 매핑 했던 0~25의 값을 다시 문자로 되돌린다.
             }
             else if((str[i] >= 'a') && (str[i] <= 'z')) {
                 str[i] -= 'a';
-
-                if ((str[i] - key2)/key1 < 0) // (문자-key2)/key1로 복호화한 값이 음수라면, 양수로 다시 매핑하기 위해 26을 더해준다.
+                str[i] = ((str[i] - key2)*key_inv)%26;
+                if (str[i] < 0)    // (str-key2)/key_inv 로 복호화 한 값이 음수라면, 양수로 다시 매핑하기 위해 26을 더해준다.
                 {
                     str[i] += 26;
                 }
-                str[i] = ((str[i] - key2)/key1) % 26; // (문자-key2)/key1로 복호화한 값이 25를 넘어가버리면 매핑할 문자가 없으므로 mod 연산 시행.
                 str[i] += 'a';
             }
         }
@@ -66,7 +60,7 @@ int main(){
     printf("Please Type Plaintext or Ciphertext :");
     gets(str);
 
-    printf("1. Encryption / 2. Decryption :"); // 암호화 할 것인지 복호화 할 것인지에 대한 분기
+    printf("1. Encryption / 2. Decryption :");
     scanf("%d",&select);
     fflush(stdin);
 
