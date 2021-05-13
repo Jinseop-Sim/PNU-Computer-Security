@@ -29,6 +29,19 @@ __It's Computer Security Class with PNU CSE__
   - Transition Cipher
     - Keyless : Rail Fence Cipher
     - Keyed : Simple keyed Cipher
+- Modern Encryption Algorithm
+  - DES(Data Encryption Standard)
+    - DES Operation
+  - AES(Advaced Encryption Standard)
+- Number Thoery
+  - Modular Arithmetic
+  - Galois Field
+  - Primes
+  - Euler-Phi Function
+  - Fermat's Little Theorem
+  - Euler's Theorem
+  - Chinese Reminder Theorem
+  - Exponentation and Logarithm
 
 <br/>
 <br/>
